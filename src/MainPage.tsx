@@ -40,19 +40,23 @@ const popupBody = () => {
     switch (clickCounter) {
         case 1:
             return (
+                <div className="popup-count-1">Ты уверена?</div>
+            )
+        case 2:
+            return (
                 <div className="popup-count-2">
                     Ты что, не хочешь поиграть?
                     <img className="demon slightly-angry" src={demonSlightlyAngry} alt="Slightly Angry Demon" />
                 </div>
             );
-        case 2:
+        case 3:
             return (
                 <div className="popup-count-3">
                     Я начинаю злиться.
                     <img className="demon angry" src={demonAngry} alt="Angry Demon" />
                 </div>
             );
-        case 3:
+        case 4:
             return (
                 <div className="popup-count-4">
                     Ты не оставила мне выбора.
@@ -72,7 +76,6 @@ const popupBody = () => {
             <div className="popup-contaner">
                 {clickCounter > 0 && (
                 <div className="popup-messages">
-                    <div className="popup-count-1">Ты уверена?</div>
                     {popupBody()}
                 </div>
                 )}
@@ -82,7 +85,7 @@ const popupBody = () => {
             </div>
             <div className="buttons">
                 <button className="yes" onClick={() => {}}>Да</button>
-                {clickCounter < 3 && (
+                {clickCounter < 4 && (
                     <button ref={buttonNoRef} className="no" onClick={hadleButtonNoClick}>Нет</button>
                     )
                 }
